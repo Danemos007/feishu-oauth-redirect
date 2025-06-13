@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8">
-  <title>正在完成授权...</title>
+  <meta charset="UTF-8">
+  <title>跳转中...</title>
 </head>
 <body>
-  <h2>🌀 正在处理飞书授权，请稍候...</h2>
   <script>
-    const params = new URLSearchParams(location.search);
-    const code = params.get('code');
-    if (code) {
-      alert('✅ 授权成功，请回到原页面点击“开整！”');
+    const query = new URLSearchParams(location.search);
+    const code = query.get('code');
+    const state = query.get('state');
+
+    if (code && state) {
+      const backTo = decodeURIComponent(state);
+      window.location.href = `${backTo}?code=${code}`;
     } else {
-      alert('❌ 没有检测到授权 code，请重试');
+      alert('❌ 没拿到 code 或 state，请重试');
     }
   </script>
 </body>
