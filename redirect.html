@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>正在完成授权...</title>
+</head>
+<body>
+  <h2>🌀 正在处理飞书授权，请稍候...</h2>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const code = params.get('code');
+    if (code) {
+      alert('✅ 授权成功，请回到原页面点击“开整！”');
+    } else {
+      alert('❌ 没有检测到授权 code，请重试');
+    }
+  </script>
+</body>
+</html>
